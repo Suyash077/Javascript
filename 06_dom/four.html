@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS series</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+
+<script>
+    function addLanguage(langname)
+    {
+        const li=document.createElement('li');
+        li.innerHTML=`${langname}`;//This Involves Traversing Entire Tree
+        document.querySelector('.language').appendChild(li);
+    }
+    addLanguage("Python");
+    addLanguage("typescript");
+
+    //Optimised Approach
+    function addoptiLanguage(langname)
+    {
+        const li=document.createElement('li');
+        li.appendChild(document.createTextNode(`${langname}`))
+        document.querySelector('.language').appendChild(li);
+    }
+    addoptiLanguage("C++")
+    addoptiLanguage("Java")
+
+    //Edit
+    const secondlang=document.querySelector('li:nth-child(2)');
+    //secondlang.innerHTML='MOJO'
+    const newli=document.createElement('li');
+    newli.textContent='MOJO';
+    secondlang.replaceWith(newli);
+
+    //Edit Example
+    const firstlang=document.querySelector('li:first-child');
+    firstlang.outerHTML='<li>golang</li>'
+
+    //Remove
+    const lastlang=document.querySelector('li:last-child');
+    lastlang.remove();
+
+</script>
+</html>
